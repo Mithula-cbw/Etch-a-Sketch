@@ -29,6 +29,7 @@ width: 100vw;
 overflow-x: hidden;
 min-height: 100vh;
 background-color: var(--main-bg-color);
+min-width: 500px;
 }
 
 .header{
@@ -232,4 +233,57 @@ background-color: var(--main-bg-color);
     height: 20px;
     fill: white;
     
+}
+
+.opt-btn{
+    display: none;
+    box-shadow: 5px 5px 10px 5px rgba(75, 75, 75, 0.139);
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    place-content: center;
+    cursor: pointer;
+}
+
+.opt-btn > svg{
+    width: 20px;
+    height: 20px;
+    fill: rgb(43, 40, 40);
+    
+}
+
+@media (max-width: 960px) {
+    .controls {
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+    .show-menu{
+        display: flex !important;
+    }
+
+    .drawing-grid{
+        margin: auto;
+    }
+
+    .opt-btn{
+        display: grid;
+        z-index: 1000;
+    }
+
+    #clear-btn{
+        margin-top: -20px;
+        padding: 5px ;
+        width: 50%;
+        margin: auto;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 5px 5px 10px 5px rgba(75, 75, 75, 0.139);
+        font-weight: 700;
+        background-color:#8E47FE;
+        color: white;
+    }
 }

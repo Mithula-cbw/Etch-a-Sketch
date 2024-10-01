@@ -160,3 +160,8 @@ neBtn.addEventListener('click', () => {
     }
 });
 
+function toggleControl(){
+    const menu = document.querySelector('.controls');
+
+    menu.classList.toggle('show-menu');
+}
