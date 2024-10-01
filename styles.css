@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root{
-    --grid-panel-width: 25px;
+    --main-bg-color: white;
+    --main-font:'Nunito' ,sans-serif;
+    --header-color:rgb(125, 125, 235);
+    --header-height:100px;
+    --title-color:pink;
+    --title-font-family: 'Edu AU VIC WA NT Dots', sans-serif;
+    --title-font-size: 2rem;
+    --title-sub-color:rgba(255, 192, 203, 0.816);
+    --grid-panel-width: 28px;
     --grid-size:16;
     --drawing-grid-color:rgb(213, 213, 213);
-    --grid-panel-color:rgb(187, 187, 243);
+    --grid-panel-color:#bbbbf3;
+    --paint-color:blue;
     --grid-panel-hover:rgb(157, 55, 236);
 }
 
@@ -12,9 +24,74 @@
     box-sizing: border-box;
 }
 
+body{
+width: 100vw;
+overflow-x: hidden;
+min-height: 100vh;
+background-color: var(--main-bg-color);
+}
+
+.header{
+    height: var(--header-height);
+    width: 100%;
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-inner{
+    width: 60%;
+    height: 80px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo{
+    width: 40px;
+    height: 40px;
+}
+
+.header-title{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: flex-start;
+}
+.header-title-main{
+    width: 100%;
+    font-family: var(--title-font-family);
+    font-size: var(--title-font-size);
+    font-weight: 700; 
+    color: var(--title-color);
+}
+
+.header-title-sub{
+    width: 100%;    
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.sub-logo > svg{
+    height: 18px;
+    width: auto;
+}
+
+
 .drawing-grid{
     margin: auto;
-    margin-top: 8%;
+    margin-top: 20px;
     width: calc(var(--grid-size)*var(--grid-panel-width));
     height:  calc(var(--grid-size)*var(--grid-panel-width));
     background-color: var(--drawing-grid-color);
@@ -30,6 +107,10 @@
     cursor: pointer;
 }
 
+.paint{
+    background-color: var(--paint-color);
+}
+
 /* Testing */
 
 /* #grid-panel-13-3{
@@ -41,4 +122,17 @@
 /* .grid-panel:hover{
     background-color: var(--grid-panel-hover) ;
 } */
+
+.controls{
+    font-family: var(--main-font);
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: black;
+    color: rgb(240, 240, 240);
+}
 

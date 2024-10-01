@@ -53,7 +53,7 @@ const clickAndDrag = () => {
     gridPanels.forEach(panel => {
         panel.addEventListener('mouseover', () => {
             if (isMouseDown) {
-                panel.style.backgroundColor = 'blue';
+               panel.classList.add('paint')
             }
         });
     });
@@ -65,7 +65,7 @@ const hoverToPaint = () => {
     const gridPanels = document.querySelectorAll('.grid-panel');
     gridPanels.forEach(panel => {
         panel.addEventListener('mouseover', () => {
-            panel.style.backgroundColor = 'blue';  // Change color on hover
+            panel.classList.add('paint')
         });
     });
 };
@@ -82,11 +82,11 @@ const clickToHover = () => {
     gridPanels.forEach(panel => {
         panel.addEventListener('mouseover', () => {
             if (isMouseDown) {
-                panel.style.backgroundColor = 'blue';  // Change color on hover if mouse is down
+                panel.classList.add('paint')
             }
         });
         panel.addEventListener('mousedown', () => {
-            panel.style.backgroundColor = 'blue';  // Immediate color change on mousedown
+            panel.classList.add('paint')
         });
     });
 
@@ -105,3 +105,31 @@ const clearPanelListeners = () => {
 
 // Initialize default behavior
 applyMouseBehavior('click-n-drag');
+
+
+// Change background color
+const backgroundColorToggle = document.getElementById('bg-color-toggle');
+
+backgroundColorToggle.addEventListener('change', (event) => {
+    const newBgColor = event.target.value; // Use event.target to get the value
+    document.documentElement.style.setProperty('--grid-panel-color', newBgColor); // Set the CSS variable
+});
+
+// Change paint color
+const paintColorToggle = document.getElementById('paint-color-toggle');
+
+paintColorToggle.addEventListener('change', (event) => {
+    const newBgColor = event.target.value; // Use event.target to get the value
+    document.documentElement.style.setProperty('--paint-color', newBgColor); // Set the CSS variable
+});
+
+//clear grid function
+function clearGrid(){
+    const gridPanels = document.querySelectorAll('.grid-panel');
+
+    if (confirm('Do you want to clear the grid? This action cannot be undone.')) {
+    gridPanels.forEach((panel)=>{
+        panel.classList.remove('paint');
+    });
+}
+}
