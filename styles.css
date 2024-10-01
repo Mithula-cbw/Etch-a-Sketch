@@ -1,0 +1,44 @@
+:root{
+    --grid-panel-width: 25px;
+    --grid-size:16;
+    --drawing-grid-color:rgb(213, 213, 213);
+    --grid-panel-color:rgb(187, 187, 243);
+    --grid-panel-hover:rgb(157, 55, 236);
+}
+
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.drawing-grid{
+    margin: auto;
+    margin-top: 8%;
+    width: calc(var(--grid-size)*var(--grid-panel-width));
+    height:  calc(var(--grid-size)*var(--grid-panel-width));
+    background-color: var(--drawing-grid-color);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.grid-panel{
+    width: var(--grid-panel-width);
+    height: var(--grid-panel-width);
+    background-color: var(--grid-panel-color);
+    cursor: pointer;
+}
+
+/* Testing */
+
+/* #grid-panel-13-3{
+    background-color: red;
+} */
+
+/* Hovering will be done with javaScript */
+
+/* .grid-panel:hover{
+    background-color: var(--grid-panel-hover) ;
+} */
+
