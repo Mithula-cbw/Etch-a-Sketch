@@ -8,35 +8,66 @@
 </head>
 <body>
     <header class="header">
-        <div class="header-inner">
-            <div class="header-logo"></div>
             <div class="header-title">
                 <div class="header-title-main">ElfySketch</div>
                 <div class="header-title-sub">
-                    <div class="sub-logo">
+                    <a target="_blank" href="https://github.com/Mithula-cbw" class="sub-logo">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                        </svg></div>
+                        </svg>
+                    </a>
                     <div class="sub-name">By Mithula Chanthuka</div>
                 </div>
             </div>
-        </div>
     </header>
     <aside class="controls">
-        <form action="">
-            <input class="mouse-behavior" id="click-n-drag" type="radio" name="mouse-behavior" value="click-n-drag" checked selected> Click and Drag to Paint
-            <input class="mouse-behavior" id="hover" type="radio" name="mouse-behavior" value="hover"> Hover to Paint
-            <input class="mouse-behavior" id="click-n-hover" type="radio" name="mouse-behavior" value="click-n-hover"> Click and Hover to Paint
-        </form>
-        <button onclick="clearGrid()">Clear</button>
+        <div class="mouse-behavior-container control-section">
+            <div class="control-section-title">Paint Options</div>
+            <div class="mouse-behavior-options">
+                <label for="click-n-drag">
+                    <input class="mouse-behavior" id="click-n-drag" type="radio" name="mouse-behavior" value="click-n-drag" checked> Click and Drag to Paint
+                </label>
+                <label for="hover">
+                    <input class="mouse-behavior" id="hover" type="radio" name="mouse-behavior" value="hover"> Hover to Paint
+                </label>
+                <label for="click-n-hover">
+                    <input class="mouse-behavior" id="click-n-hover" type="radio" name="mouse-behavior" value="click-n-hover"> Click and Hover to Paint
+                </label>
+            </div>
+        </div>
+        <div class="control-section">
+            <div class="control-section-title">Grid Size Options</div>
+          <div class="grid-size-options">
+              
+              <label for="grid-size">Grid size</label>
+              <input type="range" id="grid-size" min="10" max="50" value="16" />
+          </div> 
+        </div>
+        
+       
+        <div class="control-section">
+            <div class="control-section-title">Color Options</div>
+          
+            <div class="color-options">
+                <div class="bg-color-options">
+                    <label for="bg-color-toggle">Background Color</label>
+                    <input id="bg-color-toggle" class="bg-color-toggle" type="color" name="background-color" value="#bbbbf3">
+                </div>
+                <div class="bg-color-options">
+                   <label for="paint-color-toggle">Paint Color</label>
+                    <input id="paint-color-toggle" class="pen-color-toggle" type="color" name="background-color" value="#0000FF">
+                </div>
+            </div>
+        </div>
 
-        <label for="bg-color-toggle">Background Color</label>
-        <input id="bg-color-toggle" class="bg-color-toggle" type="color" name="background-color" value="#bbbbf3">
+        <button id="clear-btn" onclick="clearGrid()">Clear</button>
 
-        <label for="paint-color-toggle">Paint Color</label>
-        <input id="paint-color-toggle" class="pen-color-toggle" type="color" name="background-color" value="#0000FF">
-    
     </aside>
+    <div class="new-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+          </svg>
+    </div>
 <main class="working-space">
         <div class="drawing-grid" id="drawing-grid">
 </main>

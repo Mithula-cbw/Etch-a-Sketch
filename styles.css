@@ -5,14 +5,14 @@
     --main-bg-color: white;
     --main-font:'Nunito' ,sans-serif;
     --header-color:rgb(125, 125, 235);
-    --header-height:100px;
-    --title-color:pink;
+    --header-height:50px;
+    --title-color:rgb(229, 228, 228);
     --title-font-family: 'Edu AU VIC WA NT Dots', sans-serif;
-    --title-font-size: 2rem;
-    --title-sub-color:rgba(255, 192, 203, 0.816);
+    --title-font-size: 30px;
+    --title-sub-color:rgba(255, 255, 255, 0.816);
     --grid-panel-width: 28px;
     --grid-size:16;
-    --drawing-grid-color:rgb(213, 213, 213);
+    --drawing-grid-color:rgba(255, 255, 255, 0);
     --grid-panel-color:#bbbbf3;
     --paint-color:blue;
     --grid-panel-hover:rgb(157, 55, 236);
@@ -34,47 +34,33 @@ background-color: var(--main-bg-color);
 .header{
     height: var(--header-height);
     width: 100%;
-    background-color: var(--header-color);
+    background: linear-gradient(to right, #47bbff, #1e2fe9, #9148ff);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-}
-
-.header-inner{
-    width: 60%;
-    height: 80px;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-logo{
-    width: 40px;
-    height: 40px;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 40px;
 }
 
 .header-title{
-    flex-grow: 1;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
-    align-items: flex-start;
+    align-items: center;
 }
 .header-title-main{
-    width: 100%;
     font-family: var(--title-font-family);
     font-size: var(--title-font-size);
     font-weight: 700; 
     color: var(--title-color);
 }
 
-.header-title-sub{
-    width: 100%;    
+.header-title-sub{  
     font-family: var(--main-font);
+    color: var(--title-sub-color);
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -83,17 +69,29 @@ background-color: var(--main-bg-color);
 
 }
 
+.sub-logo{
+    background-color: transparent;
+    border: none;
+}
+
 .sub-logo > svg{
+    margin-top: 4px;
     height: 18px;
     width: auto;
+    cursor: pointer;
+    fill: white;
+}
+
+.sub-logo:hover > svg{
+    fill: yellow;
 }
 
 
 .drawing-grid{
-    margin: auto;
+    margin-left: 450px;
     margin-top: 20px;
-    width: calc(var(--grid-size)*var(--grid-panel-width));
-    height:  calc(var(--grid-size)*var(--grid-panel-width));
+    width:500px;
+    height: 500px;
     background-color: var(--drawing-grid-color);
     display: flex;
     flex-wrap: wrap;
@@ -129,10 +127,109 @@ background-color: var(--main-bg-color);
     top: var(--header-height);
     left: 0;
     bottom: 0;
-    width: 20%;
+    width: 400px;
     height: 100%;
     float: left;
-    background-color: black;
-    color: rgb(240, 240, 240);
+    background-color: rgba(255, 255, 255, 0.798);
+    color: rgb(23, 23, 23);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.139);
 }
 
+.control-section{
+    width: 100%;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: rgba(235, 235, 235, 0.414);
+    box-shadow: 5px 5px 10px 5px rgba(75, 75, 75, 0.139);
+
+}
+
+.control-section-title{
+    font-weight: 700;
+    color: black;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+
+.mouse-behavior-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.mouse-behavior-options > input{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.grid-size-options{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.color-options{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.bg-color-options{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+
+#clear-btn{
+    margin-top: -20px;
+    padding: 5px ;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 5px 5px 10px 5px rgba(75, 75, 75, 0.139);
+    font-weight: 700;
+    background-color:#8E47FE;
+    color: white;
+}
+
+.new-btn{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #47bbff, #1e2fe9, #9148ff);
+    opacity: 0.8;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: 0.4s ease-in;
+}
+
+.new-btn:hover{
+    background: linear-gradient(to right, #a843ec, #1e2fe9, #2456d5);
+    
+}
+
+.new-btn > svg{
+    width: 20px;
+    height: 20px;
+    fill: white;
+    
+}

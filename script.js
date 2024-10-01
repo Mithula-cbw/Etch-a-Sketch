@@ -1,17 +1,33 @@
-const gridSize = 16;
+let gridSize = 16;
 const drawingGrid = document.getElementById('drawing-grid');
 const mouseBehaviorRadios = document.querySelectorAll('.mouse-behavior');
+const gridSizeInput = document.getElementById('grid-size')
 
-
+createGrid();
 // Create grid panels
-for (let i = 0; i < gridSize; i++) {
-    for (let j = 0; j < gridSize; j++) {
-        const gridPanel = document.createElement('div');
-        gridPanel.classList.add('grid-panel');
-        gridPanel.id = `grid-panel-${i + 1}-${j + 1}`;
-        drawingGrid.appendChild(gridPanel);
+
+function createGrid(){
+    drawingGrid.innerHTML = '';
+    const gridPanelWidth = Math.floor((500 / gridSize) * 100) / 100;
+    console.log(gridPanelWidth);
+    document.documentElement.style.setProperty('--grid-panel-width', `${gridPanelWidth}px`); // Set the CSS variable
+    document.documentElement.style.setProperty('--grid-size',gridSize);
+
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+            const gridPanel = document.createElement('div');
+            gridPanel.classList.add('grid-panel');
+            gridPanel.id = `grid-panel-${i + 1}-${j + 1}`;
+            drawingGrid.appendChild(gridPanel);
+        }
     }
 }
+
+gridSizeInput.addEventListener('input', (event) => {
+    gridSize = Number(event.target.value); 
+    createGrid(); 
+});
+
 
 // Add event listeners for mouse behavior radio buttons
 mouseBehaviorRadios.forEach((radio) => {
@@ -77,6 +93,8 @@ const clickToHover = () => {
     drawingGrid.addEventListener('mousedown', () => {
         isMouseDown = !isMouseDown;  // Set mouse state to down
     });
+    drawingGrid.addEventListener('mouseleave', () => (isMouseDown = false));
+
    
     const gridPanels = document.querySelectorAll('.grid-panel');
     gridPanels.forEach(panel => {
@@ -133,3 +151,12 @@ function clearGrid(){
     });
 }
 }
+
+const neBtn = document.querySelector('.new-btn');
+
+neBtn.addEventListener('click', () => {
+    if (confirm('Do you want to reset the website? This will clear the grid and reset all settings.')) {
+        location.reload(); // Reload the page to reset everything
+    }
+});
+
